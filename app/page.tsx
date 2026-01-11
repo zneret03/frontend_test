@@ -5,9 +5,13 @@ import Gallery from "./gallery";
 import { fetchUser } from "@/services/user/user.service";
 
 export default async function Home() {
-  const response = await fetchUser();
+  const users = await fetchUser();
 
-  console.log(response);
+  console.info(users);
 
-  return <main className={styles.main}></main>;
+  return (
+    <main className={styles.main}>
+      <Gallery users={users} />
+    </main>
+  );
 }
