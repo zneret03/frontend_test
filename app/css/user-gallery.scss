@@ -1,18 +1,52 @@
 .user-gallery {
   width: 100%;
 
-  > .items {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    grid-gap: 16px;
+  .heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 32px;
 
-    @media screen and (min-width: 768.1px) {
-      grid-template-columns: 1fr 1fr 1fr;
+    .title {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .gallery-sorting {
+      display: flex;
+      gap: 16px;
+      align-items: flex-end;
+
+      @media screen and (max-width: 768px) {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      @media screen and (max-width: 480px) {
+        flex-direction: column;
+        align-items: stretch;
+      }
     }
   }
 
-  > .heading + .items {
-    margin-top: 32px;
+  > .items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 16px;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 180px;
+
+  .label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #666;
   }
 }
